@@ -9,9 +9,9 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Melinda K. Higgins, PhD." />
+<meta name="author" content="Craig Alder" />
 
-<meta name="date" content="2017-02-27" />
+<meta name="date" content="2017-03-15" />
 
 <title>N741: Homework 5</title>
 
@@ -122,46 +122,12 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">N741: Homework 5</h1>
-<h4 class="author"><em>Melinda K. Higgins, PhD.</em></h4>
-<h4 class="date"><em>February 27, 2017</em></h4>
+<h4 class="author"><em>Craig Alder</em></h4>
+<h4 class="date"><em>March 15, 2017</em></h4>
 
 </div>
 
 
-<div id="homework-5---due-march-15-2017" class="section level1">
-<h1>Homework 5 - DUE March 15, 2017</h1>
-<p>For this homework, we’ll work with the “Wong” dataset built in to the <code>car</code> package. The “Wong” data frame has 331 row and 7 columns. The observations are longitudinal data on recovery of IQ after comas of varying duration for 200 subjects. The data are from Wong, Monette, and Weiner (2001) and are for 200 patients who sustained traumatic brain injuries resulting in comas of varying duration. After awakening from their comas, patients were periodically administered a standard IQ test, but the average number of measurements per patient is small (331/200 = 1.7). <em>To get more info type <code>??Wong</code>.</em></p>
-<p>The 7 variables in the dataset are:</p>
-<ul>
-<li><code>id</code>
-<ul>
-<li>patient ID number.</li>
-</ul></li>
-<li><code>days</code>
-<ul>
-<li>number of days post coma at which IQs were measured.</li>
-</ul></li>
-<li><code>duration</code>
-<ul>
-<li>duration of the coma in days.</li>
-</ul></li>
-<li><code>sex</code>
-<ul>
-<li>a factor with levels Female and Male.</li>
-</ul></li>
-<li><code>age</code>
-<ul>
-<li>in years at the time of injury.</li>
-</ul></li>
-<li><code>piq</code>
-<ul>
-<li>performance (i.e., mathematical) IQ.</li>
-</ul></li>
-<li><code>viq</code>
-<ul>
-<li>verbal IQ.</li>
-</ul></li>
-</ul>
 <div id="load-dataset-in-from-car-package" class="section level2">
 <h2>Load dataset in from <code>car</code> package</h2>
 <pre class="r"><code>library(car)
@@ -201,7 +167,6 @@ Wong$agegrp &lt;- factor(Wong$agegrp,
                              &quot;Ages 51-10&quot;,
                              &quot;Ages 61-70&quot;,
                              &quot;Ages 71-100&quot;))</code></pre>
-<p>Using this dataset, and today’s demos complete the following tasks:</p>
 <ol style="list-style-type: decimal">
 <li>Make a table of non-parametric statistics (median and IQR) for the number of days and duration grouped by <code>sex</code>. You’ll be using <code>summarise()</code> from the <code>dplyr</code> package. For a given variable <code>x</code> you’ll use <code>median(x, na.rm=TRUE)</code>, <code>quantile(x, 0.25, na.rm=TRUE)</code>, and <code>quantile(x, 0.75, na.rm=TRUE)</code>. Give the table a title using the <code>caption=</code> option and update the column names with something nice using the <code>col.names=</code> option in the <code>knitr::kable()</code> command.</li>
 </ol>
@@ -469,16 +434,13 @@ knitr::kable(sm2$coefficients,
 <ol start="7" style="list-style-type: decimal">
 <li>STUDENT CHOICE - pick either a <code>htmlwidget</code> from <a href="http://gallery.htmlwidgets.org/" class="uri">http://gallery.htmlwidgets.org/</a> or do a “flexdashboard” using the templates at <a href="http://rmarkdown.rstudio.com/flexdashboard/" class="uri">http://rmarkdown.rstudio.com/flexdashboard/</a> as a guide.</li>
 </ol>
-</div>
-</div>
-<div id="make-it-interactive" class="section level1">
-<h1>Make it interactive</h1>
-<p>ggplotly(beatles_plot)</p>
-<pre><code></code></pre>
+<p>Code I tried</p>
+<p>{r setup, include=FALSE} library(ggplot2) library(plotly) # Build the plot mathIQ_plot &lt;- ggplot(data = Wong, aes(x=“Verbal IQ”, y=“Math IQ”)) + geom_point(aes(color=sex), size=2) mathIQ_plot ggplotly(mathIQ_plot)</p>
 <div id="references" class="section level3">
 <h3>References</h3>
 <p>Wong, P. P., Monette, G., and Weiner, N. I. (2001) Mathematical models of cognitive recovery. Brain Injury, 15, 519–530.</p>
 <p>Fox, J. (2016) Applied Regression Analysis and Generalized Linear Models, Third Edition. Sage.</p>
+<p>The link to my Github account is <a href="https://github.com/craigalder" class="uri">https://github.com/craigalder</a>. The link to my repository for this assignment is <a href="https://github.com/craigalder/Regression-1">https://github.com/craigalder/N741gapminder1.git</a>.</p>
 </div>
 </div>
 

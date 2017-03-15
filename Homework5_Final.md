@@ -1,27 +1,6 @@
 # N741: Homework 5
-Melinda K. Higgins, PhD.  
-February 27, 2017  
-
-# Homework 5 - DUE March 15, 2017
-
-For this homework, we'll work with the "Wong" dataset built in to the `car` package. The "Wong" data frame has 331 row and 7 columns. The observations are longitudinal data on recovery of IQ after comas of varying duration for 200 subjects. The data are from Wong, Monette, and Weiner (2001) and are for 200 patients who sustained traumatic brain injuries resulting in comas of varying duration. After awakening from their comas, patients were periodically administered a standard IQ test, but the average number of measurements per patient is small (331/200 = 1.7). *To get more info type `??Wong`.*
-
-The 7 variables in the dataset are:
-
-* `id`
-    + patient ID number.
-* `days`
-    + number of days post coma at which IQs were measured.
-* `duration`
-    + duration of the coma in days.
-* `sex`
-    + a factor with levels Female and Male.
-* `age`
-    + in years at the time of injury.
-* `piq`
-    + performance (i.e., mathematical) IQ.
-* `viq`
-    + verbal IQ.
+Craig Alder  
+March 15, 2017  
 
 ## Load dataset in from `car` package
 
@@ -80,8 +59,6 @@ Wong$agegrp <- factor(Wong$agegrp,
                              "Ages 61-70",
                              "Ages 71-100"))
 ```
-
-Using this dataset, and today's demos complete the following tasks:
 
 1. Make a table of non-parametric statistics (median and IQR) for the number of days and duration grouped by `sex`. You'll be using `summarise()` from the `dplyr` package. For a given variable `x` you'll use `median(x, na.rm=TRUE)`, `quantile(x, 0.25, na.rm=TRUE)`, and `quantile(x, 0.75, na.rm=TRUE)`. Give the table a title using the `caption=` option and update the column names with something nice using the `col.names=` option in the `knitr::kable()` command. 
 
@@ -241,14 +218,16 @@ anova(m1,m2)
 
 
 
-# Make it interactive
+Code I tried
 
-ggplotly(beatles_plot)
-
-```
-
-```
-
+{r setup, include=FALSE}
+library(ggplot2)
+library(plotly)
+# Build the plot
+mathIQ_plot <- ggplot(data = Wong, aes(x="Verbal IQ", y="Math IQ")) + 
+  geom_point(aes(color=sex), size=2)
+mathIQ_plot
+ggplotly(mathIQ_plot)
 
 
 ### References
@@ -256,3 +235,6 @@ ggplotly(beatles_plot)
 Wong, P. P., Monette, G., and Weiner, N. I. (2001) Mathematical models of cognitive recovery. Brain Injury, 15, 519–530.
 
 Fox, J. (2016) Applied Regression Analysis and Generalized Linear Models, Third Edition. Sage.
+
+
+The link to my Github account is [https://github.com/craigalder](https://github.com/craigalder). The link to my repository for this assignment is [https://github.com/craigalder/N741gapminder1.git](https://github.com/craigalder/Regression-1).
